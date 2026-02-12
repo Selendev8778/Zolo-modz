@@ -505,7 +505,7 @@
            font-size: 1.2rem;
        }
 
-       /* Video Modal - 16:9 для обычного видео */
+       /* Video Modal - SHORTS FORMAT 9:16 */
        .video-modal {
            position: fixed;
            top: 0;
@@ -533,7 +533,7 @@
            border: 2px solid var(--neon-orange);
            border-radius: 20px;
            padding: 20px;
-           max-width: 900px;
+           max-width: 400px; /* Узкая ширина для shorts */
            width: 100%;
            max-height: 90vh;
            position: relative;
@@ -583,7 +583,7 @@
 
        .video-container {
            position: relative;
-           padding-bottom: 56.25%; /* 16:9 aspect ratio */
+           padding-bottom: 177.77%; /* 9:16 aspect ratio для SHORTS */
            height: 0;
            overflow: hidden;
            border-radius: 15px;
@@ -1187,6 +1187,7 @@
            .lang-loading-text { font-size: 1.4rem; }
            
            .video-content { 
+               max-width: 350px; /* Еще уже на мобильных */
                padding: 15px;
            }
            .video-title { font-size: 1rem; }
@@ -1196,6 +1197,7 @@
        @media (max-width: 480px) {
            .video-content {
                max-width: 95vw;
+               max-height: 80vh;
            }
        }
 
@@ -1288,13 +1290,13 @@
        </div>
    </div>
 
-   <!-- Video Guide Modal -->
+   <!-- Video Guide Modal - SHORTS FORMAT -->
    <div class="video-modal" id="videoModal">
        <div class="video-content">
            <button class="video-close" id="videoClose">×</button>
            <h3 class="video-title" id="videoTitle">📹 ГАЙД: Как установить</h3>
            <div class="video-container">
-               <!-- GOOGLE DRIVE VIDEO -->
+               <!-- GOOGLE DRIVE VIDEO - SHORTS 9:16 -->
                <iframe src="https://drive.google.com/file/d/1YoTyCeK_TuDSfdtNGynE2LfO-DNmbeZW/preview" 
                        allow="autoplay; encrypted-media" 
                        allowfullscreen>
