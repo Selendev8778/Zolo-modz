@@ -470,6 +470,38 @@
                inset 0 0 30px rgba(255, 0, 255, 0.2);
        }
 
+       /* FAQ Button on Main Page */
+       .faq-main-btn {
+           margin-top: 30px;
+           padding: 15px 40px;
+           background: rgba(57, 255, 20, 0.1);
+           border: 2px solid var(--neon-green);
+           border-radius: 25px;
+           color: var(--neon-green);
+           font-family: 'Orbitron', sans-serif;
+           font-size: 0.9rem;
+           font-weight: 700;
+           text-transform: uppercase;
+           letter-spacing: 2px;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           gap: 10px;
+           width: 100%;
+           max-width: 200px;
+           margin-left: auto;
+           margin-right: auto;
+           animation: fadeInUp 1s ease 0.5s both;
+       }
+
+       .faq-main-btn:hover {
+           background: rgba(57, 255, 20, 0.2);
+           transform: translateY(-2px);
+           box-shadow: 0 0 30px rgba(57, 255, 20, 0.4);
+       }
+
        /* Guide Button */
        .guide-btn {
            margin-top: 20px;
@@ -521,6 +553,8 @@
            padding: 20px;
            opacity: 0;
            transition: opacity 0.3s ease;
+           overflow-y: auto;
+           -webkit-overflow-scrolling: touch;
        }
 
        .video-modal.active {
@@ -533,7 +567,7 @@
            border: 2px solid var(--neon-orange);
            border-radius: 20px;
            padding: 20px;
-           max-width: 400px; /* Узкая ширина для shorts */
+           max-width: 400px;
            width: 100%;
            max-height: 90vh;
            position: relative;
@@ -542,34 +576,47 @@
            transition: transform 0.3s ease;
            display: flex;
            flex-direction: column;
+           overflow-y: auto;
        }
 
        .video-modal.active .video-content {
            transform: scale(1);
        }
 
+       /* FIXED CLOSE BUTTON */
        .video-close {
            position: absolute;
            top: 10px;
            right: 10px;
-           width: 40px;
-           height: 40px;
+           width: 44px;
+           height: 44px;
+           min-width: 44px;
+           min-height: 44px;
            border-radius: 50%;
-           background: rgba(255, 0, 64, 0.2);
+           background: rgba(255, 0, 64, 0.3);
            border: 2px solid var(--neon-red);
            color: var(--neon-red);
            cursor: pointer;
            display: flex;
            align-items: center;
            justify-content: center;
-           font-size: 1.5rem;
+           font-size: 28px;
+           font-weight: bold;
+           line-height: 1;
            transition: all 0.3s ease;
-           z-index: 10;
+           z-index: 100;
+           padding: 0;
+           margin: 0;
        }
 
        .video-close:hover {
-           background: rgba(255, 0, 64, 0.4);
+           background: rgba(255, 0, 64, 0.5);
            transform: rotate(90deg);
+       }
+
+       .video-close span {
+           display: block;
+           transform: translateY(-2px);
        }
 
        .video-title {
@@ -579,16 +626,19 @@
            margin-bottom: 15px;
            text-align: center;
            text-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
+           padding-right: 50px;
+           padding-left: 10px;
        }
 
        .video-container {
            position: relative;
-           padding-bottom: 177.77%; /* 9:16 aspect ratio для SHORTS */
+           padding-bottom: 177.77%;
            height: 0;
            overflow: hidden;
            border-radius: 15px;
            border: 2px solid rgba(255, 102, 0, 0.3);
            box-shadow: 0 0 30px rgba(255, 102, 0, 0.2);
+           flex-shrink: 0;
        }
 
        .video-container iframe {
@@ -651,6 +701,7 @@
            opacity: 0;
            transition: opacity 0.3s ease;
            overflow-y: auto;
+           -webkit-overflow-scrolling: touch;
        }
 
        .info-modal.active {
@@ -678,25 +729,28 @@
            transform: scale(1);
        }
 
+       /* FIXED CLOSE BUTTON FOR INFO MODAL */
        .info-close {
            position: absolute;
            top: 15px;
            right: 15px;
-           width: 36px;
-           height: 36px;
+           width: 40px;
+           height: 40px;
+           min-width: 40px;
+           min-height: 40px;
            border-radius: 50%;
            background: rgba(255, 255, 255, 0.1);
-           border: 2px solid rgba(255, 255, 255, 0.3);
-           color: rgba(255, 255, 255, 0.8);
+           border: 2px solid rgba(255, 255, 255, 0.4);
+           color: rgba(255, 255, 255, 0.9);
            cursor: pointer;
            display: flex;
            align-items: center;
            justify-content: center;
-           font-size: 1.4rem;
+           font-size: 24px;
+           font-weight: bold;
            line-height: 1;
            transition: all 0.3s ease;
            z-index: 100;
-           flex-shrink: 0;
            padding: 0;
            margin: 0;
        }
@@ -706,6 +760,11 @@
            border-color: #ff0040;
            color: #ff0040;
            transform: rotate(90deg);
+       }
+
+       .info-close span {
+           display: block;
+           transform: translateY(-2px);
        }
 
        .info-title {
@@ -964,6 +1023,7 @@
            padding: 20px;
            opacity: 0;
            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+           overflow-y: auto;
        }
 
        .download-screen.active {
@@ -974,6 +1034,10 @@
        .download-content {
            text-align: center;
            max-width: 500px;
+           width: 100%;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
        }
 
        .download-icon {
@@ -986,6 +1050,7 @@
            align-items: center;
            justify-content: center;
            animation: downloadPulse 2s ease-in-out infinite;
+           flex-shrink: 0;
        }
 
        .download-icon.orange {
@@ -1084,6 +1149,7 @@
            padding: 20px;
            opacity: 0;
            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+           overflow-y: auto;
        }
 
        .v2-version-screen.active {
@@ -1097,6 +1163,9 @@
            text-align: center;
            transform: scale(0.9);
            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+           display: flex;
+           flex-direction: column;
+           align-items: center;
        }
 
        .v2-version-screen.active .v2-version-content {
@@ -1168,6 +1237,132 @@
            color: rgba(255, 255, 255, 0.6);
        }
 
+       /* FAQ Styles */
+       .faq-content {
+           max-width: 800px;
+       }
+
+       .faq-section {
+           margin-bottom: 25px;
+           border-left: 3px solid var(--neon-cyan);
+           padding-left: 15px;
+       }
+
+       .faq-section.warning {
+           border-left-color: var(--neon-orange);
+       }
+
+       .faq-question {
+           font-family: 'Orbitron', sans-serif;
+           color: var(--neon-cyan);
+           font-size: 1.1rem;
+           margin-bottom: 15px;
+           line-height: 1.4;
+       }
+
+       .faq-section.warning .faq-question {
+           color: var(--neon-orange);
+       }
+
+       .faq-answer {
+           color: rgba(255, 255, 255, 0.8);
+           line-height: 1.6;
+           font-size: 0.95rem;
+       }
+
+       .faq-answer strong {
+           color: var(--neon-green);
+       }
+
+       .faq-table {
+           width: 100%;
+           border-collapse: collapse;
+           margin: 15px 0;
+           background: rgba(255, 255, 255, 0.03);
+           border-radius: 10px;
+           overflow: hidden;
+           font-size: 0.9rem;
+       }
+
+       .faq-table th {
+           background: rgba(176, 38, 255, 0.2);
+           color: var(--neon-cyan);
+           padding: 12px;
+           text-align: left;
+           font-family: 'Orbitron', sans-serif;
+           font-size: 0.85rem;
+       }
+
+       .faq-table td {
+           padding: 12px;
+           border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+           color: rgba(255, 255, 255, 0.8);
+           font-size: 0.85rem;
+       }
+
+       .faq-table tr:last-child td {
+           border-bottom: none;
+       }
+
+       .faq-list {
+           list-style: none;
+           margin: 10px 0;
+           padding-left: 0;
+       }
+
+       .faq-list li {
+           padding: 8px 0;
+           padding-left: 25px;
+           position: relative;
+           color: rgba(255, 255, 255, 0.8);
+           font-size: 0.9rem;
+       }
+
+       .faq-list li::before {
+           content: '▸';
+           position: absolute;
+           left: 0;
+           color: var(--neon-cyan);
+       }
+
+       /* FIXED CLOSE BUTTON FOR FAQ */
+       .faq-close {
+           position: absolute;
+           top: 15px;
+           right: 15px;
+           width: 40px;
+           height: 40px;
+           min-width: 40px;
+           min-height: 40px;
+           border-radius: 50%;
+           background: rgba(255, 255, 255, 0.1);
+           border: 2px solid rgba(255, 255, 255, 0.4);
+           color: rgba(255, 255, 255, 0.9);
+           cursor: pointer;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           font-size: 24px;
+           font-weight: bold;
+           line-height: 1;
+           transition: all 0.3s ease;
+           z-index: 100;
+           padding: 0;
+           margin: 0;
+       }
+
+       .faq-close:hover {
+           background: rgba(255, 0, 64, 0.3);
+           border-color: #ff0040;
+           color: #ff0040;
+           transform: rotate(90deg);
+       }
+
+       .faq-close span {
+           display: block;
+           transform: translateY(-2px);
+       }
+
        /* Responsive */
        @media (max-width: 768px) {
            .brand-name { font-size: 2.8rem; letter-spacing: 4px; }
@@ -1176,22 +1371,44 @@
            .version-title { font-size: 1.5rem; }
            .help-wrapper { top: 15px; right: 15px; }
            .help-btn { width: 40px; height: 40px; font-size: 1.2rem; }
-           .info-content { padding: 20px; }
-           .info-title { font-size: 1.2rem; padding-right: 45px; }
-           .info-close { width: 32px; height: 32px; font-size: 1.2rem; top: 12px; right: 12px; }
-           .v2-version-title { font-size: 1.4rem; }
-           
-           .lang-wrapper { top: 15px; left: 15px; }
-           .lang-btn { padding: 8px 12px; font-size: 0.8rem; }
-           .lang-flag { width: 20px; height: 14px; }
-           .lang-loading-text { font-size: 1.4rem; }
+           .info-content { 
+               padding: 20px; 
+               max-height: 85vh;
+               margin: 10px;
+               width: calc(100% - 20px);
+           }
+           .info-title { font-size: 1.2rem; padding-right: 50px; }
            
            .video-content { 
-               max-width: 350px; /* Еще уже на мобильных */
+               max-width: 95vw;
+               max-height: 85vh;
                padding: 15px;
+               margin: 10px;
            }
-           .video-title { font-size: 1rem; }
-           .video-close { width: 35px; height: 35px; font-size: 1.2rem; }
+           .video-title { font-size: 1rem; padding-right: 50px; }
+           
+           .faq-content {
+               padding: 20px 15px;
+               max-height: 85vh;
+           }
+           
+           .faq-table {
+               font-size: 0.8rem;
+           }
+           
+           .faq-table th, .faq-table td {
+               padding: 8px;
+           }
+           
+           .download-content {
+               padding: 0 10px;
+           }
+
+           .faq-main-btn {
+               max-width: 180px;
+               padding: 12px 30px;
+               font-size: 0.85rem;
+           }
        }
 
        @media (max-width: 480px) {
@@ -1199,18 +1416,34 @@
                max-width: 95vw;
                max-height: 80vh;
            }
+           
+           .faq-question {
+               font-size: 1rem;
+           }
+
+           .video-close, .info-close, .faq-close {
+               width: 36px;
+               height: 36px;
+               font-size: 20px;
+           }
        }
 
-       .info-content::-webkit-scrollbar {
+       .info-content::-webkit-scrollbar,
+       .video-content::-webkit-scrollbar,
+       .faq-content::-webkit-scrollbar {
            width: 8px;
        }
 
-       .info-content::-webkit-scrollbar-track {
+       .info-content::-webkit-scrollbar-track,
+       .video-content::-webkit-scrollbar-track,
+       .faq-content::-webkit-scrollbar-track {
            background: rgba(255, 255, 255, 0.1);
            border-radius: 4px;
        }
 
-       .info-content::-webkit-scrollbar-thumb {
+       .info-content::-webkit-scrollbar-thumb,
+       .video-content::-webkit-scrollbar-thumb,
+       .faq-content::-webkit-scrollbar-thumb {
            background: var(--neon-purple);
            border-radius: 4px;
        }
@@ -1293,10 +1526,9 @@
    <!-- Video Guide Modal - SHORTS FORMAT -->
    <div class="video-modal" id="videoModal">
        <div class="video-content">
-           <button class="video-close" id="videoClose">×</button>
+           <button class="video-close" id="videoClose"><span>×</span></button>
            <h3 class="video-title" id="videoTitle">📹 ГАЙД: Как установить</h3>
            <div class="video-container">
-               <!-- GOOGLE DRIVE VIDEO - SHORTS 9:16 -->
                <iframe src="https://drive.google.com/file/d/1YoTyCeK_TuDSfdtNGynE2LfO-DNmbeZW/preview" 
                        allow="autoplay; encrypted-media" 
                        allowfullscreen>
@@ -1313,7 +1545,7 @@
    <!-- Info Modal -->
    <div class="info-modal" id="infoModal">
        <div class="info-content">
-           <button class="info-close" id="infoClose" aria-label="Закрыть">×</button>
+           <button class="info-close" id="infoClose" aria-label="Закрыть"><span>×</span></button>
            <h3 class="info-title" id="infoTitle">Информация об обновлении</h3>
            <ul class="info-list" id="infoList">
                <li><strong>Обновлено:</strong> 09.02.2026</li>
@@ -1346,6 +1578,130 @@
        </div>
    </div>
 
+   <!-- FAQ Modal -->
+   <div class="info-modal" id="faqModal">
+       <div class="info-content faq-content">
+           <button class="faq-close" id="faqClose" aria-label="Закрыть"><span>×</span></button>
+           <h3 class="info-title">Часто задаваемые вопросы (FAQ)</h3>
+           
+           <div class="faq-section">
+               <div class="faq-question">1. Зачем читу доступ к медиафайлам (фото/видео/аудио)?</div>
+               <div class="faq-answer">
+                   <p><strong>Если у вас есть ROOT-права — разрешения не требуются.</strong><br>
+                   Во всех остальных случаях доступ к хранилищу <strong>строго обязателен</strong>.</p>
+                   
+                   <table class="faq-table">
+                       <tr>
+                           <th>Цель</th>
+                           <th>Как это работает</th>
+                       </tr>
+                       <tr>
+                           <td>🔐 Маскировка данных</td>
+                           <td>Конфиги и обновления шифруются внутрь `.jpg`-файлов с корректными заголовками. Система видит «фото», а не «код».</td>
+                       </tr>
+                       <tr>
+                           <td>🛡️ Обход античита</td>
+                           <td>Античиты сканируют папки приложений, но не трогают медиабиблиотеку. Чит становится невидим.</td>
+                       </tr>
+                       <tr>
+                           <td>🧠 Работа умного AIMBOT</td>
+                           <td>Нейросеть анализирует последние 2 секунды аудио/видео на устройстве, чтобы предсказывать движения противника. Без доступа — модуль отключён.</td>
+                       </tr>
+                       <tr>
+                           <td>⚡ Приоритизация процессов</td>
+                           <td>Чит временно останавливает фоновые медиа-службы, освобождая RAM. Для этого нужно разрешение.</td>
+                       </tr>
+                   </table>
+                   
+                   <p style="margin-top: 15px; color: var(--neon-cyan);"><strong>Инструкция для установщика:</strong></p>
+                   <div class="faq-list">
+                       <li><strong>1. Установите APK</strong> — При первом запросе разрешений нажмите «РАЗРЕШИТЬ ВСЁ». Никогда не отключайте эти разрешения в настройках позже.</li>
+                       <li><strong>2. После первого запуска</strong> — Чит автоматически создаст папку: <code>/sdcard/DCIM/.cache/</code><br>
+                       ⚠️ Не удаляйте файлы в ней (IMG_*.jpg, audio_sample.mp3). Без них чит не запустится.</li>
+                       <li><strong>3. Проверка работы</strong> — Зайдите в настройки чита → «Стелс-режим». ✅ Зелёная галочка — всё работает. ❌ Красная — переустановите приложение.</li>
+                   </div>
+               </div>
+           </div>
+           
+           <div class="faq-section warning">
+               <div class="faq-question">2. Почему видео обрывается на надписи «Пожалуйста, подождите»?</div>
+               <div class="faq-answer">
+                   <p>Это <strong>пробная бесплатная версия</strong>. Мы максимально защищаем чит от взлома и несанкционированного доступа (кряков).</p>
+                   <p><strong>Что происходит:</strong></p>
+                   <div class="faq-list">
+                       <li>Приложение запускает проверку лицензии по вашему 12-значному ключу</li>
+                       <li>Активируется защита от скриншотов и записи экрана</li>
+                   </div>
+                   <p style="margin-top: 10px; color: var(--neon-orange);">⚠️ <strong>Внимание! Безопасность ключа:</strong></p>
+                   <p>Никому не сообщайте свой 12-значный ключ! При компрометации:</p>
+                   <table class="faq-table">
+                       <tr>
+                           <th>Последствие</th>
+                           <th>Описание</th>
+                       </tr>
+                       <tr>
+                           <td>🔒 Потеря аккаунта</td>
+                           <td>Вы навсегда потеряете доступ к профилю</td>
+                       </tr>
+                       <tr>
+                           <td>💳 Кража подписок</td>
+                           <td>Злоумышленник сможет активировать любые будущие подписки на вашем устройстве</td>
+                       </tr>
+                       <tr>
+                           <td>🛑 Автоматическая блокировка</td>
+                           <td>При подозрении на взлом система немедленно заблокирует доступ и удалённо удалит приложение</td>
+                       </tr>
+                   </table>
+                   <p style="margin-top: 10px;">📩 Если блокировка ошибочна или ключ скомпрометирован — срочно пишите в Telegram.</p>
+               </div>
+           </div>
+           
+           <div class="faq-section">
+               <div class="faq-question">3. Зачем нужно два установщика?</div>
+               <div class="faq-answer">
+                   <p>Это <strong>не ошибка</strong>, а двухступенчатая система защиты для обхода механизмов безопасности Android.</p>
+                   
+                   <table class="faq-table">
+                       <tr>
+                           <th>Этап</th>
+                           <th>Суть</th>
+                           <th>Действие</th>
+                       </tr>
+                       <tr>
+                           <td>1</td>
+                           <td>Проверка лицензии через «фейковое» обновление</td>
+                           <td>Нажать «Обновить»</td>
+                       </tr>
+                       <tr>
+                           <td>2</td>
+                           <td>Скачивание реального клиента</td>
+                           <td>Оставить «Trial Version» на столе</td>
+                       </tr>
+                       <tr>
+                           <td>3</td>
+                           <td>Создание профиля</td>
+                           <td>Придумать логин</td>
+                       </tr>
+                       <tr>
+                           <td>4</td>
+                           <td>Запуск PUBG</td>
+                           <td>Нажать «ИГРАТЬ»</td>
+                       </tr>
+                   </table>
+                   
+                   <p style="margin-top: 15px;"><strong>Подробная схема:</strong></p>
+                   <div class="faq-list">
+                       <li><strong>Шаг 1.</strong> Первый установщик проверяет ключ и предлагает «обновление». Нажмите «Обновить».</li>
+                       <li><strong>Шаг 2.</strong> Загружается основное приложение (иконка «Trial Version»). Первый установщик можно удалить.</li>
+                       <li><strong>Шаг 3.</strong> Откройте «Trial Version», придумайте логин, сгенерируется ID, можно установить аватарку.</li>
+                       <li><strong>Шаг 4.</strong> Нажмите «ИГРАТЬ» — вы перейдёте в модифицированный PUBG, встроенный в приложение.</li>
+                   </div>
+                   <p style="margin-top: 10px; color: var(--neon-green);">✅ Готово! После установки на рабочем столе остаётся только одна иконка.</p>
+               </div>
+           </div>
+       </div>
+   </div>
+
    <!-- Main Page -->
    <div class="container" id="mainPage">
        <!-- Logo Text Only -->
@@ -1363,6 +1719,12 @@
                Попробовать пробную версию на 30 дней
            </button>
        </div>
+
+       <!-- FAQ Button on Main Page -->
+       <button class="faq-main-btn" id="faqMainBtn">
+           <span>❓</span>
+           <span>FAQ</span>
+       </button>
    </div>
 
    <!-- Version Selection Screen -->
@@ -1411,7 +1773,7 @@
            </div>
            <h2 class="download-title" id="downloadTitleV3">Начинаем скачивание...</h2>
            <p class="download-text" id="downloadTextV3">Если загрузка автоматически не начнётся,<br>нажмите кнопку ниже</p>
-           <a href="https://github.com/ZoloCheatOffical/Zolo-modz/raw/main/Pubg%20ZoloCheat-GL-4.2-V5%20(Last%20D).apk" class="download-btn-final" id="finalDownloadBtnV3" download="Pubg ZoloCheat-GL-4.2-V5 (Last D).apk">Скачать файл</a>
+           <a href="https://github.com/ZoloCheatOffical/Zolo-modz/raw/main/Pubg%20ZoloCheat-GL-4.2-V6%20(V3).apk" class="download-btn-final" id="finalDownloadBtnV3" download="Pubg ZoloCheat-GL-4.2-V6 (V3).apk">Скачать файл</a>
        </div>
    </div>
 
@@ -1423,7 +1785,7 @@
            </div>
            <h2 class="download-title" id="downloadTitleV2">Начинаем скачивание V2...</h2>
            <p class="download-text" id="downloadTextV2">Если загрузка автоматически не начнётся,<br>нажмите кнопку ниже</p>
-           <a href="https://github.com/ZoloCheatOffical/Zolo-modz/raw/main/Pubg%20ZoloCheat-GL-4.2-V5%20(V2).apk" class="download-btn-final orange-btn" id="finalDownloadBtnV2" download="Pubg ZoloCheat-GL-4.2-V5 (V2).apk">Скачать файл V2</a>
+           <a href="https://github.com/ZoloCheatOffical/Zolo-modz/raw/main/Pubg%20ZoloCheat-GL-4.2-V6%20(V2).apk" class="download-btn-final orange-btn" id="finalDownloadBtnV2" download="Pubg ZoloCheat-GL-4.2-V6 (V2).apk">Скачать файл V2</a>
        </div>
    </div>
 
@@ -1468,7 +1830,8 @@
                downloadTextV2: "Если загрузка автоматически не начнётся,<br>нажмите кнопку ниже",
                downloadBtnV2: "Скачать файл V2",
                guideBtn: "ГАЙД",
-               videoTitle: "📹 ГАЙД: Как установить"
+               videoTitle: "📹 ГАЙД: Как установить",
+               faqBtn: "FAQ"
            },
            en: {
                loadingText: "Please wait...",
@@ -1508,7 +1871,8 @@
                downloadTextV2: "If download doesn't start automatically,<br>click the button below",
                downloadBtnV2: "Download V2 file",
                guideBtn: "GUIDE",
-               videoTitle: "📹 GUIDE: How to install"
+               videoTitle: "📹 GUIDE: How to install",
+               faqBtn: "FAQ"
            },
            ara: {
                loadingText: "يرجى الانتظار...",
@@ -1548,7 +1912,8 @@
                downloadTextV2: "إذا لم يبدأ التحميل تلقائيًا،<br>اضغط الزر أدناه",
                downloadBtnV2: "تحميل ملف V2",
                guideBtn: "دليل",
-               videoTitle: "📹 دليل: كيفية التثبيت"
+               videoTitle: "📹 دليل: كيفية التثبيت",
+               faqBtn: "الأسئلة الشائعة"
            },
            zh: {
                loadingText: "请稍候...",
@@ -1588,7 +1953,8 @@
                downloadTextV2: "如果下载没有自动开始，<br>请点击下方按钮",
                downloadBtnV2: "下载 V2 文件",
                guideBtn: "指南",
-               videoTitle: "📹 指南：如何安装"
+               videoTitle: "📹 指南：如何安装",
+               faqBtn: "常见问题"
            },
            es: {
                loadingText: "Por favor espere...",
@@ -1628,7 +1994,8 @@
                downloadTextV2: "Si la descarga no comienza automáticamente,<br>haz clic en el botón de abajo",
                downloadBtnV2: "Descargar archivo V2",
                guideBtn: "GUÍA",
-               videoTitle: "📹 GUÍA: Cómo instalar"
+               videoTitle: "📹 GUÍA: Cómo instalar",
+               faqBtn: "PREGUNTAS FRECUENTES"
            }
        };
 
@@ -1745,6 +2112,7 @@
            document.getElementById('tagline').textContent = t.tagline;
            document.getElementById('telegramBtn').textContent = t.telegramBtn;
            document.getElementById('trialBtn').textContent = t.trialBtn;
+           document.getElementById('faqMainBtn').querySelector('span:last-child').textContent = t.faqBtn;
 
            // Update version screen
            document.getElementById('versionTitle').textContent = t.versionTitle;
@@ -1796,6 +2164,25 @@
        // Hide info modal
        function hideInfoModal() {
            const modal = document.getElementById('infoModal');
+           modal.classList.remove('active');
+           setTimeout(() => {
+               modal.style.display = 'none';
+               document.body.style.overflow = '';
+           }, 300);
+       }
+
+       // Show FAQ modal
+       function showFaqModal() {
+           const modal = document.getElementById('faqModal');
+           modal.style.display = 'flex';
+           void modal.offsetWidth;
+           modal.classList.add('active');
+           document.body.style.overflow = 'hidden';
+       }
+
+       // Hide FAQ modal
+       function hideFaqModal() {
+           const modal = document.getElementById('faqModal');
            modal.classList.remove('active');
            setTimeout(() => {
                modal.style.display = 'none';
@@ -1900,6 +2287,10 @@
            // Info modal close
            document.getElementById('infoClose').addEventListener('click', hideInfoModal);
 
+           // FAQ button on main page
+           document.getElementById('faqMainBtn').addEventListener('click', showFaqModal);
+           document.getElementById('faqClose').addEventListener('click', hideFaqModal);
+
            // V2 download link in info modal
            document.getElementById('v2DownloadLink').addEventListener('click', function(e) {
                e.preventDefault();
@@ -1932,6 +2323,10 @@
                if (e.target === this) hideInfoModal();
            });
 
+           document.getElementById('faqModal').addEventListener('click', function(e) {
+               if (e.target === this) hideFaqModal();
+           });
+
            document.getElementById('versionScreen').addEventListener('click', function(e) {
                if (e.target === this) hideVersionScreen();
            });
@@ -1956,6 +2351,7 @@
            document.addEventListener('keydown', function(e) {
                if (e.key === 'Escape') {
                    hideInfoModal();
+                   hideFaqModal();
                    hideVideoModal();
                    document.getElementById('versionScreen').classList.remove('active');
                    document.getElementById('v2VersionScreen').classList.remove('active');
